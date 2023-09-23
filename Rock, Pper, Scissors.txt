@@ -1,0 +1,97 @@
+package com.company;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RockPaper {
+    public static void main(String[] args) {
+        System.out.println("0:Rock, 1:Paper, 2:Scissors");
+        Scanner sc = new Scanner(System.in);
+        int i = 0,count = 0,tie=0;
+        while(i<3){
+            System.out.println("Enter any digit from 0 to 2 :");
+            int user = sc.nextInt();
+            if(user == 0){
+                System.out.println("You played ROCK");
+            }
+            else if(user == 1){
+                System.out.println("You played PAPER");
+            }
+            else if(user == 2) {
+                System.out.println("You played SCISSORS");
+            }
+            Random number = new Random();
+            int comp = number.nextInt(3);//It will throw number less than 3 greater than 0.
+            if(comp == 0){
+                System.out.println("Computer played ROCK");
+            }
+            else if(comp == 1){
+                System.out.println("Computer played PAPER");
+            }
+            else if(comp == 2) {
+                System.out.println("Computer played SCISSORS");
+            }
+            switch(user){
+                case 0:
+                    if(comp==0){
+                       tie++;
+                    }
+                    else if(comp==1){
+                        //System.out.println("Computer wins!!!");
+                    }
+                    else if(comp==2){
+                        //System.out.println("You win!!!");
+                        count++;
+                    }
+                    break;
+                case 1:
+                    if(comp==0){
+                       // System.out.println("You win!!!");
+                        count++;
+                    }
+                    else if(comp==1){
+                        tie++;
+                       // System.out.println("Match ties!!!");
+                    }
+                    else if(comp==2){
+                       // System.out.println("Comptuer wins!!!");
+                    }
+                    break;
+                case 2:
+                    if(comp==0){
+                       // System.out.println("Computer wins!!!");
+                    }
+                    else if(comp==1){
+                        //System.out.println("You win!!!");
+                        count++;
+                    }
+                    else if(comp==2){
+                        tie++;
+                        //System.out.println("Match ties!!!");
+                    }
+                    break;
+                default:
+                    //System.out.println("Enter again.");
+
+
+            }
+            i++;
+
+        }
+        if(count>=2){
+            System.out.println("You beat computer!!!");
+        }
+        else if(tie>=2 && count == 1){
+            System.out.println("You beat computer!!!");
+        }
+
+        else if(tie==1 && count == 1){
+            System.out.println("Match ties!!!");
+        }
+        else if(tie==3){
+            System.out.println("Match tie");
+        }
+        else{
+            System.out.println("Computer beat you!!!");
+        }
+    }
+}
